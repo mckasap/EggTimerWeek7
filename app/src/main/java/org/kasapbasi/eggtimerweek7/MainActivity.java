@@ -9,6 +9,9 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 SeekBar sb;
 TextView tv;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +19,7 @@ TextView tv;
         sb=(SeekBar)findViewById(R.id.timerSeekBar);
         sb.setMax(600); //10 dakika için
         sb.setMin(1);
+        sb.setProgress(30);
         tv= (TextView)findViewById(R.id.tvTimer);
 
 
@@ -30,7 +34,12 @@ TextView tv;
                 int seconds;
                 minute=(int) progress/60;
                 seconds= progress-60*minute;
-                tv.setText(Integer.toString(minute)+":"+Integer.toString(seconds));
+                String secondStr=Integer.toString(seconds);
+                if(secondStr.equals("0"))
+                    secondStr="00";
+                if(secondStr.length()<2)
+                    secondStr="0" +secondStr;
+                tv.setText(Integer.toString(minute)+":"+secondStr);
             }
 
             @Override
