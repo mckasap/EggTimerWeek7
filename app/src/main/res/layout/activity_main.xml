@@ -40,6 +40,7 @@
         android:id="@+id/btnController"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="controller"
         android:text="Go"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
